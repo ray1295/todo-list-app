@@ -1,59 +1,119 @@
-# TodoListApp
+# 📝 **ToDo List Application (Angular 19)**
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+A simple, elegant, and reactive Single Page Application built using **Angular 19**, leveraging modern features such as **Signals**, **Computed**, and the latest structural directives (`@for()`, `@if()`).
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 **Project Overview**
 
-```bash
-ng serve
+This project provides a minimalistic ToDo List interface to easily manage tasks, prioritize them, and track deadlines.
+
+### **Core Functionalities:**
+
+- ✅ **Dashboard:**
+
+  - Lists all unfinished tasks sorted by descending priority.
+  - Highlights high-priority tasks with deadlines within 1 day.
+  - Allows tasks to be marked completed or reverted if done mistakenly.
+  - Shows completed tasks clearly separated.
+
+- ➕ **Create Tasks:**
+
+  - Fast creation with clear inputs (summary, description, priority, due date).
+  - Defaults due date to 3 days from creation if unspecified.
+
+- ✏️ **Edit Tasks:**
+
+  - Easy modification of task details and priorities.
+
+- 🗑 **Delete Tasks:**
+  - Supports deletion of unfinished tasks with user confirmation.
+
+---
+
+## 🛠 **Tech Stack**
+
+- **Angular 19** (Standalone Components)
+- **RxJS Observables** for async handling
+- **Signals & Computed properties** for reactive state management
+- **Angular Router** for navigation
+- **Reactive Forms Module** for form management
+- **SCSS** for styling
+
+---
+
+## 📂 **Project Structure**
+
+```
+src
+├── app
+│   ├── components
+│   │   ├── dashboard
+│   │   └── todo-form
+│   ├── models
+│   │   └── todo-item.ts
+│   ├── services
+│   │   └── todo.service.ts
+│   └── app.routes.ts
+├── assets
+└── styles.scss
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🚩 **Installation & Running Locally**
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+**1. Clone the repository:**
 
 ```bash
-ng generate --help
+git clone <your-repo-url>
+cd todo-list-app
 ```
 
-## Building
-
-To build the project run:
+**2. Install dependencies:**
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+**3. Run the development server:**
 
 ```bash
-ng test
+npm run start
 ```
 
-## Running end-to-end tests
+Navigate to [http://localhost:4200](http://localhost:4200).
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 🧪 **Testing & Mock API**
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- All API calls are mocked with a **2-second artificial delay** to simulate real-world latency.
+- Task IDs are generated using `uuid` on the client side.
+- Data persists only during the current session (no backend/database integration).
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🗒 **Assumptions**
+
+- Tasks don't persist across page refreshes (mock implementation).
+- Default due dates are set to 3 days from task creation when left empty.
+- Form validations ensure a maximum of 30 characters for task summaries.
+
+---
+
+## 🎨 **Future Improvements**
+
+Possible enhancements include:
+
+- Integrating persistent backend storage (Firebase, Supabase).
+- Enhanced styling & UI/UX improvements.
+- Authentication for user-specific task management.
+
+---
+
+## 📄 **License**
+
+MIT License © [Your Name]
+
+---
