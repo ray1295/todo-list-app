@@ -1,0 +1,38 @@
+<h2>📝 Create New Task</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <div>
+    <label for="summary">Summary*</label><br>
+    <input type="text" id="summary" formControlName="summary" maxlength="30" placeholder="Enter task summary"
+      required />
+    @if(form.controls['summary'].invalid && form.controls['summary'].touched) {
+    <small style="color:red;">Summary is required (max 30 chars).</small>
+    }
+  </div>
+
+  <div>
+    <label for="description">Description (optional)</label><br>
+    <textarea id="description" formControlName="description" placeholder="Additional details"></textarea>
+  </div>
+
+  <div>
+    <label for="completeBy">Complete By (optional)</label><br>
+    <input type="date" id="completeBy" formControlName="completeBy" />
+  </div>
+
+  <div>
+    <label for="priority">Priority</label><br>
+    <select id="priority" formControlName="priority">
+      <option [value]="1">High 🔴</option>
+      <option [value]="2">Medium 🟡</option>
+      <option [value]="3">Low 🟢</option>
+    </select>
+  </div>
+
+  <br>
+
+  <button type="submit" [disabled]="form.invalid">➕ Add Task</button>
+  <button type="button" [routerLink]="['/dashboard']">↩️ Cancel</button>
+
+</form>

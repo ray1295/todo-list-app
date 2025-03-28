@@ -1,0 +1,37 @@
+<h2>Tasks</h2>
+
+<button [routerLink]="['/new-task']">➕ New Task</button>
+
+<ul>
+  @for (todo of unfinishedTodos(); track todo.id) {
+  <li [class.urgent]="isUrgent(todo)">
+    <strong>{{ todo.summary }}</strong>
+
+    @if(todo.description) {
+    <span title="{{ todo.description }}"> ℹ️</span>
+    }
+
+    @if(todo.completeBy) {
+    <small>Due: {{ todo.completeBy | date:'shortDate' }}</small>
+    }
+
+    <button (click)="markCompleted(todo)">Complete ✔️</button>
+    <button (click)="deleteTodo(todo.id)">Delete 🗑️</button>
+  </li>
+  } @empty {
+  <li>No tasks!</li>
+  }
+</ul>
+
+
+<h3>Completed Tasks</h3>
+<ul>
+  @for (todo of completedTodos(); track todo.id) {
+  <li class="completed">
+    {{ todo.summary }}
+    <button (click)="undoCompleted(todo)">Undo ↩️</button>
+  </li>
+  } @empty {
+  <li>No completed tasks.</li>
+  }
+</ul>
