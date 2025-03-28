@@ -66,7 +66,7 @@ src
 **1. Clone the repository:**
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/ray1295/todo-list-app.git
 cd todo-list-app
 ```
 
