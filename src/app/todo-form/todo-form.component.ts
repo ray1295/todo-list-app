@@ -38,7 +38,7 @@ export class TodoFormComponent {
       this.todoService.addTodo(newTodo).subscribe(() => {
         alert('Task added!');
         this.form.reset({ priority: 2 });
-        this.router.navigate(['/dashboard']);  // ✅ navigate back after adding
+        this.router.navigate(['/dashboard']);
       });
     } else {
       alert('Check your input!');
